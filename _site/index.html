@@ -21,8 +21,8 @@
         <nav role="navigation">
           <ul id="navigator">
             <li><a href="/">home</a></li>
-            <li><a href="/projects.html">projects</a></li>
-            <li><a href="/archive.html">archive</a></li>
+            <li><a href="/projects/">projects</a></li>
+            <li><a href="/archive/">archive</a></li>
           </ul>
         
         </nav>
@@ -35,23 +35,250 @@
             
   <div class="item">
     <div class="item_details">
-      <h3><a href="/2013/08/code+school.html">Code School and Missing Manual: javascrip and jQuery</h3>
-      <h4>Posted on <a href="/2013/08/code+school.html" title="Permalink for this post">01 Aug 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
+      <h3><a href="/2013/08/15/Jekyll+tags/">Jekyll Tags</h3>
+      <h4>Posted on <a href="/2013/08/15/Jekyll+tags/" title="Permalink for this post">15 Aug 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
+    </div>
+    <div class="item_content">
+      <p>Today, I was able to work through the code to get the tags to work correctly on the blog site. Not much time to program today. </p>
+
+<p>I should apply some of javascript/jQuery knowledge to create a categorizer that will toggle dynamically between certain topics on the archive page. As far as I know, this will require both jQuery and AJAX to display the data without reloading the page. I’ll have to look at someone else’s source code to figure this out. <a href="https://github.com/mottram/mottram">mottr.am</a> has this functionality enabled on their archives page. </p>
+
+<p>Questions I need to find answers to:</p>
+
+<ul>
+  <li>Is there spell check when you use markdown?</li>
+  <li>Is there a way to automatically upload blog posts using jekyll without connecting to an FTP?</li>
+</ul>
+
+    </div>
+    <div class="item_meta">
+      <span class="item_tags">
+        Tags: 
+        
+        <a href="/tags/programming/" title="View posts tagged with &quot;programming&quot;">programming</a>, 
+        
+        <a href="/tags/jekyll/" title="View posts tagged with &quot;jekyll&quot;">jekyll</a>, 
+        
+        <a href="/tags/ruby/" title="View posts tagged with &quot;ruby&quot;">ruby</a>
+        
+      </span>
+    </div>
+  </div>
+  
+  <div class="item">
+    <div class="item_details">
+      <h3><a href="/2013/08/14/projectantman_live/">projectantman.com is online!</h3>
+      <h4>Posted on <a href="/2013/08/14/projectantman_live/" title="Permalink for this post">14 Aug 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
+    </div>
+    <div class="item_content">
+      <p>So after fiddling with the CSS and trying to get the archive page to display the dates organized by year, I finally figured out a work around. This is the first actual post I am writing in Markdown format. All the previous ones were already written and were just copied and pasted onto a page. Going forward, these posts will have more logical sense since I know people are going to read it!</p>
+
+<p>There were a couple things I really struggled with:</p>
+
+<ol>
+  <li>
+    <p>the css to indent the month and date <a href="www.projectantman.com/archive/">on the archive page</a></p>
+  </li>
+  <li>
+    <p>getting the archive page to organize by year using the a ruby extension <a href="https://gist.github.com/jdaihl/1200663">here</a></p>
+  </li>
+</ol>
+
+<p>For problem 1, I tried to add css <code>padding-left:</code> to the code to the class ‘this’ as shown below because I ran my site on a local server and clicked ‘inspect element.’ It showed that the class ‘this’ was created for the specific archive posts. So I added this code below:</p>
+
+<pre><code>ul .this {
+    padding-left: 5em;
+    }
+</code></pre>
+
+<p>But it wouldn’t change anything so I just took out the <code>padding-left: 0px;</code> declared on the ul css. This put an automatic indentation on all unordered lists by default, which is the current state it’s in now. </p>
+
+<p>For problem 2, I couldn’t understand how the ruby extension worked. I tried to look at some of the other blogs using jekyll engine <a href="https://github.com/mojombo/jekyll/wiki/Sites">here</a>. It was taking too long to figure it out so I found another workaround that didn’t use any kind of ruby extensions. I found an alternate solution on another site, but I forgot the reference. For the life of me, I couldn’t get the first header to post the current year, so it was manually entered. </p>
+
+<pre><code>&lt;section id="archive"&gt;
+&lt;h2&gt;2013&lt;/h2&gt;
+  {.% for post in site.posts %}
+  {.% unless post.next %}
+&lt;ul class="this"&gt;
+  {.% else %}
+  {.% capture year %}{.{ post.date | date: '%Y' }}{.% endcapture %}
+  {.% capture nyear %}{.{ post.next.date | date: '%Y' }}{.% endcapture %}
+  {.% if year != nyear %}
+&lt;/ul&gt;
+&lt;h2&gt;{.{ post.date | date: '%Y' }}&lt;/h2&gt;
+&lt;ul class="past"&gt;
+  {.% endif %}
+  {.% endunless %}
+    &lt;li&gt;&lt;time&gt;{.{ post.date | date:"%d %b" }}&lt;/time&gt;&amp;nbsp;&amp;nbsp;&lt;a href="{.{ post.url }}"&gt;{.{ post.title }}&lt;/a&gt;&lt;/li&gt;
+  {.% endfor %}
+&lt;/ul&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>Oh well, I am happy to have it up and running at the least. It’s time to add some features as time goes on and work on some other projects!</p>
+
+
+    </div>
+    <div class="item_meta">
+      <span class="item_tags">
+        Tags: 
+        
+        <a href="/tags/programming/" title="View posts tagged with &quot;programming&quot;">programming</a>, 
+        
+        <a href="/tags/jekyll/" title="View posts tagged with &quot;jekyll&quot;">jekyll</a>, 
+        
+        <a href="/tags/ruby/" title="View posts tagged with &quot;ruby&quot;">ruby</a>, 
+        
+        <a href="/tags/codeschool/" title="View posts tagged with &quot;codeschool&quot;">codeschool</a>
+        
+      </span>
+    </div>
+  </div>
+  
+  <div class="item">
+    <div class="item_details">
+      <h3><a href="/2013/08/10/Jekyll_madness/">Jekyll Madness!!!!!!</h3>
+      <h4>Posted on <a href="/2013/08/10/Jekyll_madness/" title="Permalink for this post">10 Aug 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
+    </div>
+    <div class="item_content">
+      <p>Okay, I can see how I can get overwhelmed by all the functionality of jekyll. I should really just focus on getting the content out with the bare minimum. I’m not sure if I even have a clear vision of how I want to categorize my posts or if it’s gonna make organizational sense. Also, I wanted to stay away from using a framework, but with my current depth of knowledge, it’ll take too much time to not use anything. I have come across two different ones. Looks like bootstrap is kind of a starter kit to using jekyll. I’ll use this and then maybe check out octopress as I learn more about different functionalities. 
+I need to push out something today regardless.  Hopefully get this done in the next two hours! 
+Here’s the map for today’s tasks:</p>
+<li>Get familiar with bootstrap... launch site with minimal css designs</li>
+<li>upload all the posts on gdocs onto the site</li>
+<li>Some side terms/things i dont know. What is....
+sass? </li>
+<li>GET more acclaimated with github</li>
+<li>check out pinboard</li>
+<li>what is .haml?</li>
+
+    </div>
+    <div class="item_meta">
+      <span class="item_tags">
+        Tags: 
+        
+        <a href="/tags/programming/" title="View posts tagged with &quot;programming&quot;">programming</a>, 
+        
+        <a href="/tags/jekyll/" title="View posts tagged with &quot;jekyll&quot;">jekyll</a>, 
+        
+        <a href="/tags/ruby/" title="View posts tagged with &quot;ruby&quot;">ruby</a>, 
+        
+        <a href="/tags/codeschool/" title="View posts tagged with &quot;codeschool&quot;">codeschool</a>
+        
+      </span>
+    </div>
+  </div>
+  
+  <div class="item">
+    <div class="item_details">
+      <h3><a href="/2013/08/09/codeschool+modules/">Code School Modules</h3>
+      <h4>Posted on <a href="/2013/08/09/codeschool+modules/" title="Permalink for this post">09 Aug 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
+    </div>
+    <div class="item_content">
+      <p>Started the codeschool modules on jQuery… it’s definitely a review and in some sense, a more indepth coverage jQuery. I think MM was a little dated on certain things you can do with jQuery. Still, it’s good to have that background moving forward. In general, the concepts and syntax are getting more complicated. It’s not as easy to wrap my head around some of the concepts, or why some syntax is written the way it is. Following jennifer dewalt’s blog, I’m starting to grasp conceptually how to go about making some of the different things shes making.</p>
+
+<p>I think its time to start my own projects!</p>
+
+<p>First off, today’s task list for programming:</p>
+<li>finish codeschool jquery modules</li>
+<li>research different blog interfaces and create a new design for my site</li>
+<li>and of course doing regular cardiotronic work</li>
+
+
+    </div>
+    <div class="item_meta">
+      <span class="item_tags">
+        Tags: 
+        
+        <a href="/tags/programming/" title="View posts tagged with &quot;programming&quot;">programming</a>, 
+        
+        <a href="/tags/jQuery/" title="View posts tagged with &quot;jQuery&quot;">jQuery</a>, 
+        
+        <a href="/tags/codeschool/" title="View posts tagged with &quot;codeschool&quot;">codeschool</a>
+        
+      </span>
+    </div>
+  </div>
+  
+  <div class="item">
+    <div class="item_details">
+      <h3><a href="/2013/08/09/Jekyll_blog/">Jekyll Blog</h3>
+      <h4>Posted on <a href="/2013/08/09/Jekyll_blog/" title="Permalink for this post">09 Aug 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
+    </div>
+    <div class="item_content">
+      <p>Kind of went around in circles today trying to figure out how to set up jekyll for my blog. It’s a lot more confusing than I thought. It looks like using bootstrapper will be an “easy” way out of it. At this point, I guess I can try to understand the code and downsize the many pages it has into a separate file and make it my own. Uh oh…. programming is starting to get confusing! Actually building stuff is a lot harder. I have to make sure to do things methodically. I should take a break now…</p>
+
+    </div>
+    <div class="item_meta">
+      <span class="item_tags">
+        Tags: 
+        
+        <a href="/tags/programming/" title="View posts tagged with &quot;programming&quot;">programming</a>, 
+        
+        <a href="/tags/jekyll/" title="View posts tagged with &quot;jekyll&quot;">jekyll</a>, 
+        
+        <a href="/tags/ruby/" title="View posts tagged with &quot;ruby&quot;">ruby</a>, 
+        
+        <a href="/tags/codeschool/" title="View posts tagged with &quot;codeschool&quot;">codeschool</a>
+        
+      </span>
+    </div>
+  </div>
+  
+  <div class="item">
+    <div class="item_details">
+      <h3><a href="/2013/08/07/Finishing_up_MM_tutoria/">Finishing up Missing Manual: javascript and jQuery</h3>
+      <h4>Posted on <a href="/2013/08/07/Finishing_up_MM_tutoria/" title="Permalink for this post">07 Aug 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
+    </div>
+    <div class="item_content">
+      <p>Finished the MM yesterday. I think I have a rough understanding of the concepts on how webpages are made to be dynamic using JS and jQ. I can vaguely see how I can create the webpages that I want. I guess the next step now is to start creating some stuff! First off, I should use all the jQ plugins from the tutorial to my website. </p>
+
+<p>I’ll write some of the things I want to accomplish in the following days:</p>
+<ul>add a functional photo gallery to my page</ul>
+<ul>apply a sliding navigation bar with multiple trees</ul>
+<ul>create a signup/login</ul>
+<ul>relaunch the site as an actual blog</ul>
+
+<p>Afterwards, I think I am going to try to move on to create some simple games that may partially function. </p>
+
+    </div>
+    <div class="item_meta">
+      <span class="item_tags">
+        Tags: 
+        
+        <a href="/tags/programming/" title="View posts tagged with &quot;programming&quot;">programming</a>, 
+        
+        <a href="/tags/jQuery/" title="View posts tagged with &quot;jQuery&quot;">jQuery</a>, 
+        
+        <a href="/tags/codeschool/" title="View posts tagged with &quot;codeschool&quot;">codeschool</a>
+        
+      </span>
+    </div>
+  </div>
+  
+  <div class="item">
+    <div class="item_details">
+      <h3><a href="/2013/08/01/missing+manual+grind/">Missing Manual: javascript and jQuery</h3>
+      <h4>Posted on <a href="/2013/08/01/missing+manual+grind/" title="Permalink for this post">01 Aug 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
     </div>
     <div class="item_content">
       <p>Was able to put about 3 hours into the MM (Missing Manual). The books pace is really slow and it doesn’t really teach much about how js actually works, but just uses plugins for everything. Not sure if that’s a good or bad thing? Gotta have patience I suppose. I decided to skim the book more and put useful bookmarks and summaries of each chapter on my google docs. I guess unless I really start “building” and applying the principles, I’m not gonna get better at this.</p>
 
-<p>Project Ideas: <li>Create a similar slideshow using the anythingslider plugin for the cardiotronic website.</li> <li>change default color schemes.</li> <li>create a pong game</li></p>
+<p>Project Ideas:</p>
+<li>Create a similar slideshow using the anythingslider plugin for the cardiotronic website.</li>
+<li>change default color schemes.</li>
+<li>create a pong game</li>
+
     </div>
     <div class="item_meta">
       <span class="item_tags">
         Tags: 
         
-        <a href="/tags/programming.html" title="View posts tagged with &quot;programming&quot;">programming</a>, 
+        <a href="/tags/programming/" title="View posts tagged with &quot;programming&quot;">programming</a>, 
         
-        <a href="/tags/jQuery.html" title="View posts tagged with &quot;jQuery&quot;">jQuery</a>, 
+        <a href="/tags/jQuery/" title="View posts tagged with &quot;jQuery&quot;">jQuery</a>, 
         
-        <a href="/tags/codeschool.html" title="View posts tagged with &quot;codeschool&quot;">codeschool</a>
+        <a href="/tags/codeschool/" title="View posts tagged with &quot;codeschool&quot;">codeschool</a>
         
       </span>
     </div>
@@ -59,31 +286,40 @@
   
   <div class="item">
     <div class="item_details">
-      <h3><a href="/2013/07/August+Outlook.html">Front-end development</h3>
-      <h4>Posted on <a href="/2013/07/August+Outlook.html" title="Permalink for this post">31 Jul 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
+      <h3><a href="/2013/07/31/August_Outlook/">Front-end development</h3>
+      <h4>Posted on <a href="/2013/07/31/August_Outlook/" title="Permalink for this post">31 Jul 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
     </div>
     <div class="item_content">
-      <p>It’s been awhile since I wrote in this. In the last 20 days or so I have been working on Javascript &amp; jQuery: The Missing Manual 2nd edition at a snails pace&#8230;. I got through 8 chapters with a rudimentary understanding of jquery and javascript. So far, I am kind of able to create navigation scroll downs and a dynamic picture viewer. All through using different javascript plugins.</p>
+      <p>It’s been awhile since I wrote in this. In the last 20 days or so I have been working on Javascript &amp; jQuery: The Missing Manual 2nd edition at a snails pace…. I got through 8 chapters with a rudimentary understanding of jquery and javascript. So far, I am kind of able to create navigation scroll downs and a dynamic picture viewer. All through using different javascript plugins. </p>
 
-<p>The relationship has been taking a lot of extracurricular time away. But still isn’t the primary reason of slowing down. It’s most likely that I am not managing my time well. A lot of time is wasted getting distracted with other things.</p>
+<p>The relationship has been taking a lot of extracurricular time away. But still isn’t the primary reason of slowing down. It’s most likely that I am not managing my time well. A lot of time is wasted getting distracted with other things. </p>
 
-<p>Personal Thoughts for August My main focus in the month of August is to get rid of some of these distractions and fill it with more programming. After that, I’ll have a better assessment of if I ‘really’ don’t have enough time. I have gotten a bit better at saying at no to certain events (which I’m really bad at). Also, I really hope to stop smoking today. That when I do crack, it really torments me because I am letting so many people and God down including myself.</p>
+<p>Personal Thoughts for August
+My main focus in the month of August is to get rid of some of these distractions and fill it with more programming. After that, I’ll have a better assessment of if I ‘really’ don’t have enough time. I have gotten a bit better at saying at no to certain events (which I’m really bad at). Also, I really hope to stop smoking today. That when I do crack, it really torments me because I am letting so many people and God down including myself. </p>
 
-<p>Goals for August http://blog.jenniferdewalt.com/ I came upon this blog of a programmer who’s doing 180 websites in 180 days&#8230; It’s intriguing and definitely a sign that this is doable. Maybe I will try this in a less ambitious schedule, but first things first. I firmly believe in creating a good foundation first (perhaps it’ll take longer) but I think it’s best for the long run. So, for me it’s back to finishing the book missing manual.</p>
-<li>Finish missing manual</li><li>Start Eloquent Javascript</li><li>Apply the things I learned to the website, add more pages, and maybe think of some game projects to do.</li><li>Keep logging everything - make it a habit.</li>
-<p>Project ideas Create a map with pings on all the cities I’ve been to in America!</p>
+<p>Goals for August
+http://blog.jenniferdewalt.com/ I came upon this blog of a programmer who’s doing 180 websites in 180 days… It’s intriguing and definitely a sign that this is doable. Maybe I will try this in a less ambitious schedule, but first things first. I firmly believe in creating a good foundation first (perhaps it’ll take longer) but I think it’s best for the long run. So, for me it’s back to finishing the book missing manual.</p>
+
+<li>Finish missing manual</li>
+<li>Start Eloquent Javascript</li>
+<li>Apply the things I learned to the website, add more pages, and maybe think of some game projects to do.</li>
+<li>Keep logging everything - make it a habit.</li>
+
+<p>Project ideas
+Create a map with pings on all the cities I’ve been to in America!</p>
+
     </div>
     <div class="item_meta">
       <span class="item_tags">
         Tags: 
         
-        <a href="/tags/programming.html" title="View posts tagged with &quot;programming&quot;">programming</a>, 
+        <a href="/tags/programming/" title="View posts tagged with &quot;programming&quot;">programming</a>, 
         
-        <a href="/tags/HTML.html" title="View posts tagged with &quot;HTML&quot;">HTML</a>, 
+        <a href="/tags/HTML/" title="View posts tagged with &quot;HTML&quot;">HTML</a>, 
         
-        <a href="/tags/CSS.html" title="View posts tagged with &quot;CSS&quot;">CSS</a>, 
+        <a href="/tags/CSS/" title="View posts tagged with &quot;CSS&quot;">CSS</a>, 
         
-        <a href="/tags/jQuery.html" title="View posts tagged with &quot;jQuery&quot;">jQuery</a>
+        <a href="/tags/jQuery/" title="View posts tagged with &quot;jQuery&quot;">jQuery</a>
         
       </span>
     </div>
@@ -91,21 +327,22 @@
   
   <div class="item">
     <div class="item_details">
-      <h3><a href="/2013/07/Rails+Tutorial.html">Rails Tutorial</h3>
-      <h4>Posted on <a href="/2013/07/Rails+Tutorial.html" title="Permalink for this post">05 Jul 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
+      <h3><a href="/2013/07/05/Rails_Tutorial/">Rails Tutorial</h3>
+      <h4>Posted on <a href="/2013/07/05/Rails_Tutorial/" title="Permalink for this post">05 Jul 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
     </div>
     <div class="item_content">
-      <p>Finally finished uploading my first hompage onto my own server and domain! Although progress is a little bit slow, I&#8217;m finally getting the understanding the big picture of HTML and CSS and how the web really works.</p>
+      <p>Finally finished uploading my first hompage onto my own server and domain! Although progress is a little bit slow, I’m finally getting the understanding the big picture of HTML and CSS and how the web really works.</p>
 
-<p>I&#8217;ll continue to add pages to all of the nav bar links and continue to build upon the website. I&#8217;m currently torn between if I should continue with Ruby on Rails tutorial or to get a better understanding of jquery/javascript. Whatever I decide, I&#8217;ll continue to keep learning.</p>
+<p>I’ll continue to add pages to all of the nav bar links and continue to build upon the website. I’m currently torn between if I should continue with Ruby on Rails tutorial or to get a better understanding of jquery/javascript. Whatever I decide, I’ll continue to keep learning.</p>
+
     </div>
     <div class="item_meta">
       <span class="item_tags">
         Tags: 
         
-        <a href="/tags/programming.html" title="View posts tagged with &quot;programming&quot;">programming</a>, 
+        <a href="/tags/programming/" title="View posts tagged with &quot;programming&quot;">programming</a>, 
         
-        <a href="/tags/Rails.html" title="View posts tagged with &quot;Rails&quot;">Rails</a>
+        <a href="/tags/Rails/" title="View posts tagged with &quot;Rails&quot;">Rails</a>
         
       </span>
     </div>
@@ -113,23 +350,24 @@
   
   <div class="item">
     <div class="item_details">
-      <h3><a href="/2013/07/first_post.html">First Post</h3>
-      <h4>Posted on <a href="/2013/07/first_post.html" title="Permalink for this post">04 Jul 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
+      <h3><a href="/2013/07/04/first_post/">First Post</h3>
+      <h4>Posted on <a href="/2013/07/04/first_post/" title="Permalink for this post">04 Jul 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
     </div>
     <div class="item_content">
       <p>Site is online!</p>
 
 <p>My log of switching careers to computer programming. My main goal is to master web development hopefully, both front end and back end. My language focus will be on Ruby on Rails, Javascript, HTML and CSS!</p>
+
     </div>
     <div class="item_meta">
       <span class="item_tags">
         Tags: 
         
-        <a href="/tags/programming.html" title="View posts tagged with &quot;programming&quot;">programming</a>, 
+        <a href="/tags/programming/" title="View posts tagged with &quot;programming&quot;">programming</a>, 
         
-        <a href="/tags/HTML.html" title="View posts tagged with &quot;HTML&quot;">HTML</a>, 
+        <a href="/tags/HTML/" title="View posts tagged with &quot;HTML&quot;">HTML</a>, 
         
-        <a href="/tags/CSS.html" title="View posts tagged with &quot;CSS&quot;">CSS</a>
+        <a href="/tags/CSS/" title="View posts tagged with &quot;CSS&quot;">CSS</a>
         
       </span>
     </div>
@@ -137,381 +375,39 @@
   
   <div class="item">
     <div class="item_details">
-      <h3><a href="/2013/06/First+purchase+of+domain.html">First Domain</h3>
-      <h4>Posted on <a href="/2013/06/First+purchase+of+domain.html" title="Permalink for this post">25 Jun 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
+      <h3><a href="/2013/06/25/First_purchase_of_domain/">First Domain</h3>
+      <h4>Posted on <a href="/2013/06/25/First_purchase_of_domain/" title="Permalink for this post">25 Jun 2013</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
     </div>
     <div class="item_content">
-      <p>today, i finally committed to pursuing a career in development&#8230;. I am going to document all my thoughts and actions in this whole journey.</p>
+      <p>today, i finally committed to pursuing a career in development…. I am going to document all my thoughts and actions in this whole journey. </p>
 
-<p>I bought my first domain name and registered with a webhost off hostmetro.com! www.projectantman.com. it doesn’t do anything right now, but definitely will have some promise soon.. $60&#8230;.</p>
+<p>I bought my first domain name and registered with a webhost off hostmetro.com! www.projectantman.com. it doesn’t do anything right now, but definitely will have some promise soon.. $60….</p>
 
-<p>So after talking to Dan, he suggested I make a homepage. I’m guessing he meant from scratch or as close to scratch as I could&#8230;</p>
+<p>So after talking to Dan, he suggested I make a homepage. I’m guessing he meant from scratch or as close to scratch as I could…</p>
 
-<p>I realized I have a straight idea on how to this&#8230; couple of the first questions that come up seem so stupid:</p>
+<p>I realized I have a straight idea on how to this… couple of the first questions that come up seem so stupid: </p>
 
-<p>Am I supposed to install a framework into my server?? Is it supposed to be done through pure html code?? how do i upload or edit code?? I wonder how it ties into what I’m doing with rails tutorial?? Can I use that to create/edit homepages with the same capabilities if I were to build it up from scratch??</p>
+<p>Am I supposed to install a framework into my server?? 
+Is it supposed to be done through pure html code??
+how do i upload or edit code?? 
+I wonder how it ties into what I’m doing with rails tutorial?? Can I use that to create/edit homepages with the same capabilities if I were to build it up from scratch??</p>
 
-<p>Thank the lord for the internet! I think I’ll be a little closer as I answer these questions&#8230;</p>
+<p>Thank the lord for the internet! I think I’ll be a little closer as I answer these questions…</p>
 
-<p>On a sidenote&#8230; I’ll try to push through the rails tutorial and finish by the end of this weekend.</p>
+<p>On a sidenote… I’ll try to push through the rails tutorial and finish by the end of this weekend.</p>
+
     </div>
     <div class="item_meta">
       <span class="item_tags">
         Tags: 
         
-        <a href="/tags/programming.html" title="View posts tagged with &quot;programming&quot;">programming</a>, 
+        <a href="/tags/programming/" title="View posts tagged with &quot;programming&quot;">programming</a>, 
         
-        <a href="/tags/HTML.html" title="View posts tagged with &quot;HTML&quot;">HTML</a>, 
+        <a href="/tags/HTML/" title="View posts tagged with &quot;HTML&quot;">HTML</a>, 
         
-        <a href="/tags/CSS.html" title="View posts tagged with &quot;CSS&quot;">CSS</a>, 
+        <a href="/tags/CSS/" title="View posts tagged with &quot;CSS&quot;">CSS</a>, 
         
-        <a href="/tags/personal.html" title="View posts tagged with &quot;personal&quot;">personal</a>
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2011/10/own-label.html">Own Label</h3>
-      <h4>Posted on <a href="/2011/10/own-label.html" title="Permalink for this post">03 Oct 2011</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>Sainsbury&#8217;s Own Label biscuit assortment, 1967. Lovely.</p>
-
-<p>From Fuel&#8217;s history of Sainsbury&#8217;s design studio, <a href='http://www.fuel-design.com/index.php?menu=3&amp;pic=287&amp;detail=1'>Own Label</a>. More at <a href='http://www.creativereview.co.uk/cr-blog/2011/august/sainsburys-own-label-book'>Creative Review</a>.</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-        <a href="/tags/design.html" title="View posts tagged with &quot;design&quot;">design</a>
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2011/09/pinboard-slash-fandom.html">Pinboard Slash Fandom</h3>
-      <h4>Posted on <a href="/2011/09/pinboard-slash-fandom.html" title="Permalink for this post">30 Sep 2011</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>Apparently, <a href='http://delicious.com'>Delicious</a> (née del.icio.us) was awfully popular with <a href='http://en.wikipedia.org/wiki/Fandom'>fandom</a> types, especially the ones who enjoy <a href='http://en.wikipedia.org/wiki/Slash_fiction'>slash</a> fiction.</p>
-
-<p>So, when the men who invented YouTube completely and utterly ruined the once-great service, breaking tags with a <code>/</code> in them in the process, the fandom people jumped ship&#8211;no <a href='http://en.wikipedia.org/wiki/Shipping_(fandom)'>pun</a> intended&#8211;to <a href='http://pinboard.in'>Pinboard</a>, a superior bookmarking service.</p>
-
-<p>Next, the fandom people set up <a href='https://docs.google.com/document/d/17oqfHHkO48fVFY3sPQqkoCuqFnQOWe4fxRxXJ-lUglg/edit?hl=en_US&amp;pli=1'>a Google Doc</a> so they could collaborate on feature requests. Maciej, the bloke who made Pinboard, joined in, answering questions and offering tips.</p>
-
-<p>Impressed, one of the fandom people wrote <a href='http://archiveofourown.org/works/258626'>a piece of slash fiction</a> about an anthropomorphised Pinboard lothario shagging an anthropomorphised fandom community, making an anthropomorphised Delicious jealous. Amazing.</p>
-
-<p>This is such a perfect storm of arcane web culture, pervy strangeness and general nerdery that I <em>almost</em> don&#8217;t care that Pinboard&#8217;s &#8217;<a href='http://pinboard.in/popular/'>popular</a>&#8217; page is now completely swamped with links to cringeworthy short stories about, I dunno, Dumbledore inappropriately touching Wesley Crusher.</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-        <a href="/tags/pinboard.html" title="View posts tagged with &quot;pinboard&quot;">pinboard</a>, 
-        
-        <a href="/tags/fandom.html" title="View posts tagged with &quot;fandom&quot;">fandom</a>
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2011/09/walrus.html">Walrus</h3>
-      <h4>Posted on <a href="/2011/09/walrus.html" title="Permalink for this post">26 Sep 2011</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>A new Oyster-style travel card from Merseytravel, coming to buses, trains and the ferry over the next couple of years.</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-        <a href="/tags/travel.html" title="View posts tagged with &quot;travel&quot;">travel</a>, 
-        
-        <a href="/tags/merseyside.html" title="View posts tagged with &quot;merseyside&quot;">merseyside</a>
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2011/09/mastergram.html">Mastergram</h3>
-      <h4>Posted on <a href="/2011/09/mastergram.html" title="Permalink for this post">07 Sep 2011</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p><em>Tenement Penthouse, 1941</em> by Weegee, filtered through Instagram. From <a href='http://mastergram.tumblr.com/' title='Mastergram'>Mastergram</a>, a site devoted to &#8216;remarkable photos made better (or worse) using Instagram&#8217;. Horrifying.</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-        <a href="/tags/photography.html" title="View posts tagged with &quot;photography&quot;">photography</a>, 
-        
-        <a href="/tags/horror.html" title="View posts tagged with &quot;horror&quot;">horror</a>
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2011/09/forty-year-old-3d-computer-graphics.html">Forty Year Old 3D Computer Graphics</h3>
-      <h4>Posted on <a href="/2011/09/forty-year-old-3d-computer-graphics.html" title="Permalink for this post">03 Sep 2011</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>More info <a href='http://nerdplusart.com/first-3d-rendered-film-from-1972-and-my-visit-to-pixar'>here</a>.</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-        <a href="/tags/3D.html" title="View posts tagged with &quot;3D&quot;">3D</a>, 
-        
-        <a href="/tags/graphics.html" title="View posts tagged with &quot;graphics&quot;">graphics</a>
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2007/05/rubyfx_script_announced.html">RubyFX Script Announced</h3>
-      <h4>Posted on <a href="/2007/05/rubyfx_script_announced.html" title="Permalink for this post">20 May 2007</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>At first I was rather disappointed by what <a href='http://www.sun.com/'>Sun</a> announced with <a href='http://sun.com/javafx/'>JavaFX</a>, the newest competitor in the RIA market. In my taste F3 looks rather ugly and has a way too expressive syntax, compared to, say SVG. The target&#8217;s not the same between these two, I know that, but comparing what code you need to draw, SVG is a winner. Anyway, that&#8217;s not really the point.</p>
-
-<p>An announcement on <a href='http://conferences.oreillynet.com/rails/'>RailsConf</a> shed a new light on JavaFX. A new framework called RubyFX is on a quest to close the gap between the DLR supporting Ruby and Sun&#8217;s rather desperate attempt to get into the RIA market. The code looks very expressive, and to say the least, is what I&#8217;m talking about. It&#8217;s still early alpha, but it looks promising.</p>
-<p>(Via <a href='http://www.almaer.com/blog/archives/001496.html'>Dion</a>)</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2007/05/namespacing_your_rails_model_an.html">Namespacing Your Rails Model - An Afterthought</h3>
-      <h4>Posted on <a href="/2007/05/namespacing_your_rails_model_an.html" title="Permalink for this post">02 May 2007</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>In an earlier post I wrote about <a href='http://www.paperplanes.de/archives/2007/4/27/namespace_your_rails_model/'>namespacing your Rails model</a>. There&#8217;s an additional issue that must be thought of when doing so. Rails (of course) has conventions dealing with namespaces.</p>
-
-<p>Normally, when you put classes in namespaces, like <code>Admin::User</code>, Rails normally expects this class to be in a folder <code>admin</code> in your <code>app/models</code> directory. Responsible for this is the method <code>load_missing_constant</code> in the module Dependencies, part of ActiveSupport. It also uses the namespace to build the table name. So <code>Admin::User</code> would result in <code>admin_users</code>. This isn&#8217;t always a desirable outcome. Of course you could set a table name explicitly:</p>
-
-<pre><code>class Admin::User &lt; ActiveRecord::Base
-  set_table_name &quot;users&quot;
-end</code></pre>
-
-<p>If you need to avoid namespace clashes, that&#8217;s an acceptable option. But what if you only want to bring some order to your model directory? You want to create some subfolders to separate your model physically, if only to avoid having dozens of files in the model folder.</p>
-
-<p>This is where <code>load_missing_constant</code> kicks in again. If you don&#8217;t load the files in the subdirectories explicitly, it will assume that the files are in their according namespace. So having a class <code>User</code> in a file <code>user.rb</code> lying in the folder <code>app/models/admin/</code> will lead it to assume <code>User</code> exists in the module <code>Admin</code>. To avoid that you&#8217;ll have to add your model subfolders as load paths. To do that you can add the following line to your environment.rb:</p>
-
-<pre><code>config.load_paths += Dir[&quot;#{RAILS_ROOT}/app/models/[a-z]*&quot;]</code></pre>
-
-<p>This will tell Rails to look for the the files in all subfolders of <code>app/models</code> on startup. This won&#8217;t solve the issue yet, you&#8217;ll still need to explicitly load the classes. So you put the following lines at the end of your <code>environment.rb</code>:</p>
-
-<pre><code>[ &quot;app/models&quot; ].each do |path|
-  Dir[&quot;#{RAILS_ROOT}/#{path}/**/*.rb&quot;].each do |file|
-    load file
-  end
-end</code></pre>
-
-<p>That way you&#8217;ll avoid the implicit call to <code>load_missing_constant</code>. You can add directories to the list, e.g. a subdirectory in <code>lib</code>. You could also explicitly require the classes you need, but who wants to do that, really?</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2007/05/microsoft_announces_ironruby.html">Microsoft announces IronRuby</h3>
-      <h4>Posted on <a href="/2007/05/microsoft_announces_ironruby.html" title="Permalink for this post">01 May 2007</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>Now that&#8217;s something. Microsoft announced IronRuby at their MIX07 conference. IronPython developer Jim Hugunin <a href='http://blogs.msdn.com/hugunin/archive/2007/04/30/a-dynamic-language-runtime-dlr.aspx'>provides some details</a> about extensions to the .NET CLR made to improve support for scripting languages. The extension is called Dynamic Language Routine.</p>
-
-<p>The name IronRuby is of course an homage to IronPython, the Python implementation running on .NET. Considering the IronPython is famous for its speed, I&#8217;m excited to see what Microsoft&#8217;s developers are able to squeeze out of Ruby on the CLR. If IronRuby turns out well, it might become <em>the</em> way to run Rails on the .NET (and hence Windows) platform.</p>
-
-<p>I&#8217;m always up for competition, even coming from Redmond. With other Ruby implementations (including, of course <a href='http://jruby.sourceforge.net/'>JRuby</a>, fully backed by Sun in case you missed it) gaining a wider audience there&#8217;s more pressure on the <a href='http://www.ruby-lang.org/en/'>original version</a>. With <a href='http://www.atdot.net/yarv/'>YARV</a> coming to Ruby, it too will run on a virtual machine. The speed improvements look quite impressive so far.</p>
-
-<p>Here&#8217;s to an interesting race.</p>
-
-<p>Of course the DLR shines a new light on <a href='http://silverlight.net/Default.aspx'>Silverlight</a>, whose Technology Preview for <a href='http://silverlight.net/GetStarted/'>version 1.1</a> includes support for scripting rich browser applications with Python, Ruby, VB or C#.</p>
-
-<p>(Via <a href='http://www.infoq.com/news/2007/04/ms-ironruby'>InfoQ</a>)</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2007/04/namespace_your_rails_model.html">Namespace Your Rails Model</h3>
-      <h4>Posted on <a href="/2007/04/namespace_your_rails_model.html" title="Permalink for this post">27 Apr 2007</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>I had a nice revelation earlier this week, when I finally tested some code I wrote in the wild, the wild being BackgrounDRb. The code used some pretty common class and module names. I didn&#8217;t expect many problems when I used something along the lines of Sync or Synchronizer. When running the code in test cases there wasn&#8217;t any problem.</p>
-
-<p>At first I got the error, that I couldn&#8217;t include Sync (my module) with the <code>include</code> keyword into a class. I wondered why Ruby wanted to tell me that my module would be a class. I quickly found the answer. Ruby&#8217;s standard library contains a class named Sync. As long as my code ran in a test case that class didn&#8217;t come into play. But BackgrounDRb uses apparently uses it, therefore it got loaded before my module. That was the first name clash.</p>
-
-<p>The second involved the class Synchronizer which is a class included in the package Slave used by BackgrounDRb. Slave&#8217;s class even comes along with the same method I used, so you can imagine the look on my face, when I discovered that the code included there immediately started running when my BackgrounDRb worker ran.</p>
-
-<p>That it took me some hours to find these issues because of a bug in BackgrounDRb is a totally different issue.</p>
-
-<p>The moral of the story: namespace your model classes, and the code in <code>lib/</code>. The more classes you have, the bigger the chances that it clashes with a class in one of your installed gems. The best example is a class like <code>User</code>. The chances are pretty good that it&#8217;s being used somewhere else. To avoid a clash choose a namespace corresponding to your business case or application (the project name would do).</p>
-
-<p>Keep in mind that Rails expects a directory structure corresponding to your namespaces. So if you have a class <code>Bacon</code> in the module <code>Chunky</code>, be sure to put the class file <code>bacon.rb</code> into a subfolder named <code>chunky</code> in the <code>app/model</code> directory. The same goes for code in <code>lib/</code>.</p>
-
-<p>For smaller projects this might not be necessary, but I learned the hard way that it can be a pretty good practice.</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2007/04/the_web_design_survey.html">The Web Design Survey</h3>
-      <h4>Posted on <a href="/2007/04/the_web_design_survey.html" title="Permalink for this post">24 Apr 2007</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>They wanted me to spread the word, so that&#8217;s what I&#8217;ll do.</p>
-
-<p>A List Apart (if you don&#8217;t know it, it&#8217;s a great resource for web designers and developers) is running its first annual Web Design Survey to increase knowledge about the people involved in all things dealing with the web design and development. I think you should take part in it too.</p>
-<a href='http://alistapart.com/articles/webdesignsurvey'><img src='http://aneventapart.com/webdesignsurvey/templates/ala/images/i-took-the-2007-survey.gif' /></a>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2007/04/cssedit_keeps_getting_better_and.html">CSSEdit Keeps Getting Better And Better</h3>
-      <h4>Posted on <a href="/2007/04/cssedit_keeps_getting_better_and.html" title="Permalink for this post">23 Apr 2007</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>blah blah blah balh blah blah balh</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2007/04/a_fix_for_rails_12_again.html">A Fix for Rails 1.2</h3>
-      <h4>Posted on <a href="/2007/04/a_fix_for_rails_12_again.html" title="Permalink for this post">18 Apr 2007</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>While setting up a new project with Rails 1.2.3 I ran across a weird issue in my tests. Somewhere from the CGI class (belonging to Ruby&#8217;s core lib and extended by Rails) a nil object was used and threw an error. Turns out this was introduced in 1.2.2 with a fix that was supposed to improve CGI handling on Windows.</p>
-
-<p>The <a href='http://dev.rubyonrails.org/ticket/7581'>issue</a> has been fixed in the <a href='http://dev.rubyonrails.org/changeset/6448'>stable branch of Rails 1.2</a>, but if you&#8217;re stuck with 1.2.3 or 1.2.2 you can do what I do: use a plugin. I took this opportunity to write my first, so <a href='/files/rails12x_cgi_fix.zip'>here</a> it is.</p>
-
-<p>Sorry I don&#8217;t have a fancy SVN set up for your plugin-script-using pleasure, but this is a tiny fix anyway.</p>
-
-<p>Though this was a rather annoying bug the fix emphasizes the beauty of Rails and Ruby: It&#8217;s easy to extend and even to fix.</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2007/04/supermarket_20_again.html">Supermarket 2.0</h3>
-      <h4>Posted on <a href="/2007/04/supermarket_20_again.html" title="Permalink for this post">17 Apr 2007</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>So this is what it looks like:</p>
-<object height='350' width='425'><param name='movie' value='http://www.youtube.com/v/e9MgHuitMwU' /><param name='wmode' value='transparent' /><embed height='350' src='http://www.youtube.com/v/e9MgHuitMwU' type='application/x-shockwave-flash' width='425' wmode='transparent' /></object>
-<p>I had a good laugh.</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2007/04/multidatabase_connectivity_in_rails_again.html">Multi-Database Connectivity in Rails</h3>
-      <h4>Posted on <a href="/2007/04/multidatabase_connectivity_in_rails_again.html" title="Permalink for this post">17 Apr 2007</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>Kudos to Dr. Nic for <a href='http://drnicwilliams.com/2007/04/12/magic-multi-connections-a-facility-in-rails-to-talk-to-more-than-one-database-at-a-time/'>this one</a>. At least a discussion filled with <a href='http://www.loudthinking.com/arc/000610.html'>arrogance</a> and <a href='http://www.loudthinking.com/arc/000608.html'>finger-pointing</a> turned out something useful.</p>
-
-<p>I worked on a similar problem two weeks ago and came up with a pretty similar solution, though without the fanciness of just defining new databases in database.yml and having the classes in corresponding modules automatically.</p>
-
-<p>To sum up: no jealousy, I&#8217;m just glad other&#8217;s have taken a very similar approach. I just wish, Alex Payne of <a href='http://www.twitter.com'>Twitter</a> would&#8217;ve given <a href='http://www.radicalbehavior.com/5-question-interview-with-twitter-developer-alex-payne/'>this interview</a> a little earlier.</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-        <a href="/tags/rails.html" title="View posts tagged with &quot;rails&quot;">rails</a>, 
-        
-        <a href="/tags/ruby.html" title="View posts tagged with &quot;ruby&quot;">ruby</a>
-        
-      </span>
-    </div>
-  </div>
-  
-  <div class="item">
-    <div class="item_details">
-      <h3><a href="/2007/04/welcome_aboard_again.html">Welcome Aboard</h3>
-      <h4>Posted on <a href="/2007/04/welcome_aboard_again.html" title="Permalink for this post">16 Apr 2007</a> by <a href="http://twitter.com/antkim003">Anthony Kim</a></h4>
-    </div>
-    <div class="item_content">
-      <p>So this is it. My new blog. It doesn&#8217;t look like much, but I&#8217;m working on it. Here&#8217;s where I&#8217;ll write about my adventures as a freelancer, things related to Rails and things that bother me, things I like and my view on life as a freelancer and Mac OS X nerd.</p>
-
-<p>So what is Paperplanes? Paperplanes is the name of my business as a freelancer.</p>
-
-<p>Who are you? I&#8217;m an almost 30-year-old freelance software developer, living in Berlin/Germany. I&#8217;ve been freelancing for almost a year now, and so far I can&#8217;t complain.</p>
-
-<p>What do I do? I used to do a lot of Java-based work. You can read the results of that over at my Java-related blog <a href='http://www.javaddicts.net'>Javaddicts</a>.</p>
-
-<p>So why a new blog? As a freelancer, I&#8217;ve been doing much more than program Java. Lately I find myself writing more and more apps with Rails which I really enjoy.</p>
-
-<p>What&#8217;s gonna happen next? The design for the page has been in my drawer for almost a year now, and it&#8217;s time to finish it. So that&#8217;s what I&#8217;ll do.</p>
-    </div>
-    <div class="item_meta">
-      <span class="item_tags">
-        Tags: 
-        
-        <a href="/tags/miscellany.html" title="View posts tagged with &quot;miscellany&quot;">miscellany</a>
+        <a href="/tags/personal/" title="View posts tagged with &quot;personal&quot;">personal</a>
         
       </span>
     </div>
@@ -519,7 +415,7 @@ end</code></pre>
   
 </ul>
 
-          <a href="/archive.html">&lt;&lt; Archive</a> | <a href="http://google.com" onclick="Element.toggle('search_content');return false;">Search</a> | <a href="http://feeds.feedburner.com/" title="Full-text RSS feed">RSS Feed</a> 
+          <a href="/archive/">&lt;&lt; Archive</a> | <a href="http://google.com" onclick="Element.toggle('search_content');return false;">Search</a> | <a href="http://feeds.feedburner.com/" title="Full-text RSS feed">RSS Feed</a> 
 
 
           <div id="search_content" style="display:none; margin-top:10px"> 

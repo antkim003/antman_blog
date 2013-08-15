@@ -1,11 +1,11 @@
-permalink: /:year/:month/:title.html
-
-exclude: [".rvmrc", ".rbenv-version", "Rakefile", "TODO.md", "sass_converter.rb", "Gemfile", "Gemfile.lock", ".tm_properties", "config.rb", "sass", "CNAME", "Procfile"]
+permalink: /:year/:month/:day/:title/
+pygments: true
+markdown: kramdown
+tag_dir: tags
+tag_title_prefix:
 
 baseurl: /
 live_url: http://www.projectantman.com
 
 title : This is my homepage
-tagline: project antman
-author :
-  name : Anthony
+name : Anthony
