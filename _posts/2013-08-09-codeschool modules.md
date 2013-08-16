@@ -12,7 +12,8 @@ Started the codeschool modules on jQuery... it’s definitely a review and in so
 I think its time to start my own projects!
 
 First off, today’s task list for programming:
-<li>finish codeschool jquery modules</li>
-<li>research different blog interfaces and create a new design for my site</li>
-<li>and of course doing regular cardiotronic work</li>
+
+*  finish codeschool jquery modules
+*  research different blog interfaces and create a new design for my site
+*  of course doing regular cardiotronic work
 
