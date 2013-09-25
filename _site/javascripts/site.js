@@ -13,6 +13,6 @@ function init()
 function searchFocus()
 {
 	search_field.style.color = active_search_text_color;
-	search_field.value = 'site:paperplanes.de ';
+	search_field.value = 'site:antmanprojects.com ';
 }
 

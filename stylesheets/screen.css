@@ -12,8 +12,10 @@ body {
   margin: 0px;
   padding: 0px;
   color: #4c4c4c;
-  background: white;
+  background-image: url(img/background.png);
+  background-repeat: repeat;
   text-align: center;
+  z-index: 1;
 }
 
 /**
@@ -21,15 +23,14 @@ body {
  ***************************/
 #box {
   margin: 20px auto;
-  background-color: #fff;
-  text-align: right;
+  text-align: left;
   width: 800px;
 }
 
 html>body #box {
-  max-width: 680px;
+  width: 100%;
   padding-right: 0px;
-  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 #wrapper {
@@ -47,10 +48,11 @@ html>body #box {
   padding-right: 10px;
   margin: auto;
   border: 1px solid #4C4C4C;
+  background: white;
 }
 
 html>body #content {
-    width: 680px;
+    width: 660px;
     line-height: 18px;
 }
 
@@ -63,7 +65,6 @@ nav li a {
 
 footer {
   clear: both;
-  background: url(../images/bottom.png);
   height: 21px;
   min-height: 21px;
 }
@@ -188,7 +189,7 @@ h4, .item_meta {
     font-weight: normal;
 }
 .item_meta {
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 /**
@@ -246,16 +247,16 @@ blockquote {
 
 ul {
   list-style-type: none;
+  padding-left: 0;
   }
 
-  ul .this {
-    padding-left: 5em;
-  }
-
-nav ul {
+#navigator ul {
   position: relative;
   list-style-type: none;
-  text-align: right;
+  text-align: left;
+  padding: 0;
+  margin-bottom: 20px;
+  margin-top: 0px;
 }
 
 #navigator li {
