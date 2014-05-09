@@ -1,59 +1,50 @@
-/* @override 
-  http://www.paperplanes.de/themes/paperplanes/stylesheets/screen.css
-  http://localhost:3000/themes/paperplanes/stylesheets/screen.css
-  http://192.168.2.106:3000/themes/paperplanes/stylesheets/screen.css
-*/
+
 
 /**
  * =Body
  ***************************/
 body {
-  font: normal 13px Lucida Grande, Verdana;
+  font: 400 13px 'Source Sans Pro', sans-serif;
   margin: 0px;
   padding: 0px;
   color: #4c4c4c;
-  background-image: url(img/background.png);
   background-repeat: repeat;
   text-align: center;
   z-index: 1;
+  background: url("/stylesheets/img/bg-pattern.png") repeat black;
 }
+
 
 /**
  * =Layout
  ***************************/
+.white {
+  background: white;
+}
 #box {
-  margin: 20px auto;
+  padding: 20px 0 20px 0;
   text-align: left;
-  width: 800px;
 }
 
 html>body #box {
   width: 100%;
-  padding-right: 0px;
-  margin-top: 10px;
 }
 
 #wrapper {
-  width: 800px;
-  margin: 0px auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #content {
-  width: 680px;
   text-align: left;
   float: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px 15px 10px 15px;
   margin: auto;
-  border: 1px solid #4C4C4C;
   background: white;
 }
 
 html>body #content {
-    width: 660px;
-    line-height: 18px;
+  line-height: 18px;
 }
 
 /* @ nav */
@@ -79,93 +70,18 @@ footer #footer_text {
 }
 
 /**
- * =Search
- ***************************/
-#search, #search_results {
-  padding-bottom: 6px;
-}
-input[id=q],
-#login input[type=text],
-#login input[type=password] {
-  font: normal 11px Arial, Verdana, Sans-serif;
-  padding: 2px;
-  width: 250px;
-  color: #48453c;
-}
-input[id=q] {
-    width: 170px;
-}
-#results {
-  display: inline;
-}
-#results ol li {
-  padding-bottom: 3px;
-}
-
-/**
- * =Posts and comments
- ***************************/
-.item_tags {
-    clear: both;
-    font-size: 11px;
-}
-
-.item_comments {
-  font-size: 11px;
-}
-table#comment_form {
-    margin-top: 10px;
-}
-table#comment_form td {
-    padding: 2px 2px 2px 0;
-}
-table#comment_form td.labels {
-    width: 130px;
-}
-#comments h4 { }
-#comments .comment_content {
-    margin-top: 16px;
-    width: auto;
-}
-#comments .approval_required {
-    color: #209d20;
-    font-size: 11px;
-    padding: 10px;
-  border: 1px solid #209d20;
-}
-#comments .comment {
-  width: 100%;
-  clear: both;
-}
-#comments .comment_author {
-  font-weight: bold;
-}
-#comments .comment_details {
-  margin-bottom: -10px;
-  font-size: 11px;
-  color: gray;
-}
-#comments .gravatar {
-  float: right;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  margin: 4px 6px 0 0;
-  border: 1px solid #777;
-  background: #fff url(../images/default_gravatar.gif) no-repeat top left;
-}
-#comments h3#post {
-  clear: both;
-  padding-top: 30px;
-}
-
-/**
  * =Headers
  ***************************/
-
+.header {
+  background: white;
+}
+header {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+}
 h1 {
+  color: #4068B1;
   font-size: 32px;
-  font-weight: normal;
   padding: 0;
   margin: 0;
 }
@@ -177,7 +93,6 @@ h2 {
   font-size: 20px;
   padding: 0px 5px 5px 0px;
   margin: 5px 0px;
-  font-weight: normal;
 }
 h3 {
     font-size: 15px;
@@ -186,12 +101,17 @@ h3 {
 h4, .item_meta {
     font-size: 10px;
     color: #777;
-    font-weight: normal;
+
 }
 .item_meta {
     padding-bottom: 30px;
 }
-
+.solid-line {
+  width: 100%;
+  height: 10px;
+  background-color: #F79837;
+  margin-top: 7px;
+}
 /**
  * =Links
  ***************************/
@@ -227,8 +147,7 @@ code {
 }
 
 pre {
-  background-image: url(img/code.png);
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(216, 216, 215, 0.36);
   padding: 1em 1em;
   margin: 10px 25px 10px 20px;
   line-height: 1.4;

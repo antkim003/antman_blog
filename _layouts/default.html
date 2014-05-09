@@ -1,53 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
-  <head>
-    <title>{{ page.title }}</title>
-    <link href='#' rel="alternate" title="Primary Feed" type="application/rss+xml" />
-    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="antman" type="text/css" />
-    <script src="/javascripts/site.js" type="text/javascript"></script>
-  </head>
-  
-  <body>
+<head>
+  {% include head.html %}
+</head>
 
-<div id="main">
-  <div id="wrapper">
-    <div id="box">
-      <header>
-        <h1> Antman Projects</h1>
-          <ul id="navigator">
-            <li><a href="/">home</a> / </li>
-            <li><a href="/projects/">projects</a> / </li>
-            <li><a href="/archive/">archive</a></li>
-          </ul>
-      </header>
-    </div>
+<body>
+
+<div class="container white">
+  <header id="main">
+    {% include header.html %}
+  </header>
+    
+  <div id="content">
+    {{ content }}
+    <a href="/archive/">Archive</a> 
   </div>
 </div>
-    
-        <div id="content">
-          {{ content }}
-          <a href="/archive/">&lt;&lt; Archive</a> | <a href="http://google.com" onclick="Element.toggle('search_content');return false;">Search</a> | <a href="http://feeds.feedburner.com/" title="Full-text RSS feed">RSS Feed</a> 
 
-
-          <div id="search_content" style="display:none; margin-top:10px"> 
-            <form action="http://www.google.com/search" id="search_form" method="get">
-              <div id="search"> 
-                <b>Search:</b>&nbsp;&nbsp;<input type="text" name="q" id="q" value="Enter your terms, hit enter" onfocus="searchFocus()"/> 
-              </div> 
-            </form>
-          </div>    
-        </div>
-
-        
-        <footer>
-          <div id="footer_text">&copy; antman 2013 | All Rights Reserved. </div>
-        <footer>
-      </div>
-
-    </div>
-
+<footer>
+  {% include footer.html %}
+<footer>
+      
 <script type="text/javascript">
   var _gauges = _gauges || [];
   (function() {

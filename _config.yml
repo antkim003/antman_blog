@@ -3,9 +3,11 @@ pygments: true
 markdown: kramdown
 tag_dir: tags
 tag_title_prefix:
+paginate: 5
 
 baseurl: /
 live_url: http://www.projectantman.com
 
 title : This is my homepage
 name : Anthony
+
