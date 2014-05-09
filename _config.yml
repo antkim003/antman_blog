@@ -6,8 +6,13 @@ tag_title_prefix:
 paginate: 5
 
 baseurl: /
-live_url: http://www.projectantman.com
+live_url: http://blog.antkim.com
 
 title : This is my homepage
 name : Anthony
 
+
+assets:
+  js_compressor: uglifier
+  css_compressor: sass
+version: 1

@@ -4,14 +4,14 @@
  * =Body
  ***************************/
 body {
-  font: 400 13px 'Source Sans Pro', sans-serif;
+  font: 300 16px 'Source Sans Pro', sans-serif;
   margin: 0px;
   padding: 0px;
   color: #4c4c4c;
   background-repeat: repeat;
   text-align: center;
   z-index: 1;
-  background: url("/stylesheets/img/bg-pattern.png") repeat black;
+  background: url(<%= asset_path 'bg-pattern.png' %>) repeat black;
 }
 
 
@@ -56,8 +56,10 @@ nav li a {
 
 footer {
   clear: both;
-  height: 21px;
-  min-height: 21px;
+  height: 35px;
+  min-height: 35px;
+  background-color: #272B33;
+  color: white;
 }
 
 footer #footer_text {
@@ -99,7 +101,7 @@ h3 {
     padding-bottom: 3px;
 }
 h4, .item_meta {
-    font-size: 10px;
+    font-size: 13px;
     color: #777;
 
 }
