@@ -5,25 +5,27 @@
   {% include head.html %}
 </head>
 
+<header class="container-wide white" id="main">
+  {% include header.html %}
+</header>
+
 <body>
 
-<div class="container white">
-  <header id="main">
-    {% include header.html %}
-  </header>
+<div class="container margin-bottom-30 white">
     
   <div id="content">
     {{ content }}
-    <a href="/archive/">Archive</a> 
   </div>
 </div>
 
-<div class="container footer">
+</body>
+
+<div class="footer">
   <footer>
     {% include footer.html %}
   </footer>
 </div>
-      
+
 <script type="text/javascript">
   var _gauges = _gauges || [];
   (function() {
@@ -38,5 +40,4 @@
   })();
 </script>
 
-</body>
 </html>

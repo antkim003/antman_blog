@@ -4,14 +4,14 @@
  * =Body
  ***************************/
 body {
-  font: 300 16px 'Source Sans Pro', sans-serif;
+  font: 300 16px "Helvetica",Arial,Verdana,sans-serif;;
   margin: 0px;
   padding: 0px;
   color: #4c4c4c;
   background-repeat: repeat;
   text-align: center;
   z-index: 1;
-  background: url(<%= asset_path 'bg-pattern.png' %>) repeat black;
+  background-color: #f1f1f1;
 }
 
 
@@ -22,7 +22,6 @@ body {
   background: white;
 }
 #box {
-  padding: 20px 0 20px 0;
   text-align: left;
 }
 
@@ -31,8 +30,7 @@ html>body #box {
 }
 
 #wrapper {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 3.5%;
 }
 
 #content {
@@ -41,6 +39,16 @@ html>body #box {
   padding: 10px 15px 10px 15px;
   margin: auto;
   background: white;
+  overflow: visible;
+  -moz-box-shadow: 0 1px 0 rgba(0,0,0,.2),0 2px 7px rgba(0,0,0,.15);
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.2),0 2px 7px rgba(0,0,0,.15);
+  box-shadow: 0 1px 0 rgba(0,0,0,.2),0 2px 7px rgba(0,0,0,.15);
+  z-index: 1000;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
 
 html>body #content {
@@ -78,14 +86,34 @@ footer #footer_text {
   background: white;
 }
 header {
-  font-family: 'Lora', serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: 500;
+  overflow: visible;
+  -moz-box-shadow: 0 1px 0 rgba(0,0,0,.2),0 2px 7px rgba(0,0,0,.15);
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.2),0 2px 7px rgba(0,0,0,.15);
+  box-shadow: 0 1px 0 rgba(0,0,0,.2),0 2px 7px rgba(0,0,0,.15);
+  z-index: 1000;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+header#main {
+  margin-bottom: 30px;
+}
+header.wider.container {
+  width: 120%;
 }
 h1 {
-  color: #4068B1;
   font-size: 32px;
   padding: 0;
   margin: 0;
+}
+h1.serious-font {
+  font-family: serif;
+  color: #111;
+  font-weight: 400;
 }
 h3, h4 {
     margin: 0;
@@ -241,4 +269,15 @@ li {
   z-index: -100;
   margin-top: 250px;
   margin-right: 20px;
+}
+
+
+/**
+ * =CSS helpers
+ ***************************/
+.mute {
+  color: gray;
+}
+.margin-bottom-30 {
+  margin-bottom: 30px !important;
 }
