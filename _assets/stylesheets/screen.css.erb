@@ -1,11 +1,12 @@
-
-
+html {
+  position: relative;
+  height:100%;
+}
 /**
  * =Body
  ***************************/
 body {
   font: 300 16px "Helvetica",Arial,Verdana,sans-serif;;
-  margin: 0px;
   padding: 0px;
   color: #4c4c4c;
   background-repeat: repeat;
@@ -271,13 +272,26 @@ li {
   margin-right: 20px;
 }
 
-
 /**
- * =CSS helpers
+ * =sticky footer
+ ***************************/
+
+ footer {
+  position: absolute;
+  left: 0;
+  height: 35px;
+  width: 100%;
+  bottom: 0px;
+ }
+
+/* =CSS helpers
  ***************************/
 .mute {
   color: gray;
 }
 .margin-bottom-30 {
   margin-bottom: 30px !important;
+}
+.margin-bottom-50 {
+  margin-bottom: 50px !important;  
 }
