@@ -1,6 +1,5 @@
 html {
-  position: relative;
-  height:100%;
+  height: 100%;
 }
 /**
  * =Body
@@ -13,6 +12,8 @@ body {
   text-align: center;
   z-index: 1;
   background-color: #f1f1f1;
+  margin: 0;
+  height: inherit;
 }
 
 
@@ -99,6 +100,9 @@ header {
   -ms-transform: translate3d(0,0,0);
   -o-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
+  width: 100%;
+  background-color: white;
+  margin-bottom: 20px;
 }
 header#main {
   margin-bottom: 30px;
@@ -277,13 +281,20 @@ li {
  ***************************/
 
  footer {
-  position: absolute;
+  position: relative;
   left: 0;
   height: 35px;
   width: 100%;
   bottom: 0px;
+  margin-top: -35px;
  }
 
+#container {
+  height: auto;
+  min-height: 100%;
+  overflow: auto;
+  padding-bottom: 35px;
+}
 /* =CSS helpers
  ***************************/
 .mute {

@@ -4,9 +4,11 @@
 <head>
   {% include head.html %}
 </head>
-
-<header class="container-wide white" id="main">
-  {% include header.html %}
+<div id="container">
+<header class="full-header">
+  <div class="container-wide white" >
+    {% include header.html %}
+  </div>
 </header>
 
 <body>
@@ -17,24 +19,14 @@
     {{ content }}
   </div>
 </div>
+</div>
 
 <footer>
   {% include footer.html %}
 </footer>
 
-<script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '4e390748f5a1f54cd0000001');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+{% javascript app %}
 
 </body>
 </html>
